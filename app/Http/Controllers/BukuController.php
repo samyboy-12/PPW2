@@ -3,15 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Buku; 
 
-class JobController extends Controller
+class BukuController 
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('jobs');
+       $data_buku = Buku::all();
+
+       // Menghitung jumlah data buku
+       $jumlah_buku = $data_buku->count();
+        
+       // Menghitung total harga semua buku
+       $total_harga = $data_buku->sum('harga');
+
+       // Mengirimkan data ke view
+       return view('buku.index', compact('data_buku', 'jumlah_buku', 'total_harga'));
     }
 
     /**

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use  App\Http\Controllers\JobController;
+use  App\Http\Controllers\BukuController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -30,4 +30,4 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/jobs', [JobController::class, 'index']); 
+Route::get('/buku', [BukuController::class, 'index']); 
